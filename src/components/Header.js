@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
-// import { SIGNOUT } from "../redux/auth"
+import { auth } from "../firebase"
 
 export default function Header() {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated)
@@ -25,7 +25,9 @@ export default function Header() {
             </>
           ) : (
             <li>
-              <Link to="/signup">Log Out</Link>
+              <Link to="/signup" onClick={() => auth.signOut()}>
+                Log Out
+              </Link>
             </li>
           )}
         </ul>

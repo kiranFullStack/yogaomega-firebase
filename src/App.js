@@ -8,7 +8,7 @@ import {
   firestore,
 } from "./firebase"
 import { useSelector, useDispatch } from "react-redux"
-import { REDUXTEST, SIGNOUT, USERAUTH } from "./redux/auth"
+import { REDUXTEST, USERAUTH } from "./redux/auth"
 
 function App(props) {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated)
