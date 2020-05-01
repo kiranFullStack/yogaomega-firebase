@@ -13,7 +13,7 @@ export default function Dashboard() {
     }
 
     // return to another component
-  })
+  }, [])
 
   if (redirctTo) {
     return <Redirect to="/signup" />
