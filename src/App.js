@@ -8,7 +8,7 @@ import {
   firestore,
 } from "./firebase"
 import { useSelector, useDispatch } from "react-redux"
-import { REDUXTEST, SIGNOUT } from "./redux/auth"
+import { REDUXTEST, SIGNOUT, USERAUTH } from "./redux/auth"
 
 function App(props) {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated)
@@ -46,6 +46,10 @@ function App(props) {
       }
     })
   }, [])
+
+  useEffect(() => {
+    dispatch(USERAUTH(user))
+  }, [user])
 
   return (
     <div className="App">

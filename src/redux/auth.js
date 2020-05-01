@@ -4,7 +4,7 @@
 
 const INITIAL_STATE = {
   isAuthenticated: false,
-  user: {},
+  user: null,
   token: "",
   errorMessage: "",
 }
@@ -38,6 +38,12 @@ const auth = (state = INITIAL_STATE, action) => {
         isAuthenticated: false,
         token: {},
       }
+    case "USERAUTH":
+      return {
+        ...state,
+        user: action.payload,
+        isAuthenticated: action.payload ? true : false,
+      }
 
     default:
       return state
@@ -57,6 +63,14 @@ export const SIGNOUT = () => {
   return {
     type: "SIGNOUT",
     //   payload: true
+  }
+}
+
+export const USERAUTH = (user) => {
+  console.log("userauth action")
+  return {
+    type: "USERAUTH",
+    payload: user,
   }
 }
 
