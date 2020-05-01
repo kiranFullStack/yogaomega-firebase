@@ -1,12 +1,35 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import "./index.scss"
-import App from "./App"
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import * as serviceWorker from "./serviceWorker"
+import App from "./App"
+import Dashboard from "./pages/Dashboard"
+import Home from "./pages/Home"
+import Signup from "./pages/Signup"
+import { Provider } from "react-redux"
+import store from "./redux/store"
+import Header from "./components/Header"
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <Router>
+        <Header />
+        <App>
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/dashboard">
+              <Dashboard />
+            </Route>
+            <Route path="/signup">
+              <Signup />
+            </Route>
+          </Switch>
+        </App>
+      </Router>
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 )

@@ -1,10 +1,20 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import "./App.scss"
+import {
+  signInWithGoogle,
+  signInWithFacebook,
+  auth,
+  handleUserProfile,
+  firestore,
+} from "./firebase"
 
-function App() {
+function App(props) {
+  const [user, setUser] = useState(null)
+
   return (
     <div>
-      <h1>Yogaomega Firebase</h1>
+      <h1>App</h1>
+      {props.children}
     </div>
   )
 }
