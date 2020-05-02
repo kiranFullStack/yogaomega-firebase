@@ -29,6 +29,50 @@ function App(props) {
       })
   }
 
+  const modifyUserW = () => {
+    firestore
+      .collection("users")
+      .doc(user.uid)
+      .set({
+        ...user,
+
+        warmup: !user.warmup,
+      })
+  }
+
+  const modifyUserA = () => {
+    firestore
+      .collection("users")
+      .doc(user.uid)
+      .set({
+        ...user,
+
+        asana: !user.asana,
+      })
+  }
+
+  const modifyUserP = () => {
+    firestore
+      .collection("users")
+      .doc(user.uid)
+      .set({
+        ...user,
+
+        pranayama: !user.pranayama,
+      })
+  }
+
+  const modifyUserD = () => {
+    firestore
+      .collection("users")
+      .doc(user.uid)
+      .set({
+        ...user,
+
+        dhyana: !user.dhyana,
+      })
+  }
+
   useEffect(() => {
     auth.onAuthStateChanged(async () => {
       if (auth.currentUser) {
@@ -62,14 +106,18 @@ function App(props) {
               {user.email}
               <br />
               Warmup-
+              <button onClick={() => modifyUserW()}>warmup</button>
               {user && user.warmup ? "yes" : "no"}
               <br />
               Asana-
               {user && user.asana ? "yes" : "no"} <br />
+              <button onClick={() => modifyUserA()}>asana</button>
               Pranayama-
               {user && user.pranayama ? "yes" : "no"} <br />
+              <button onClick={() => modifyUserP()}>pranayama</button>
               Dhyana-
               {user && user.dhyana ? "yes" : "no"}
+              <button onClick={() => modifyUserD()}>dhyana</button>
             </h1>
             <button onClick={() => modifyUser()}>Modify</button>
             <button
