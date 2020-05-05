@@ -8,26 +8,13 @@ import {
   firestore,
 } from "./firebase"
 import { useSelector, useDispatch } from "react-redux"
-import { REDUXTEST, USERAUTH } from "./redux/auth"
+import { USERAUTH } from "./redux/auth"
 
 function App(props) {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated)
   const dispatch = useDispatch()
   const [idToken, setIdToken] = useState(null)
   const [user, setUser] = useState(null)
-
-  const modifyUser = () => {
-    firestore
-      .collection("users")
-      .doc(user.uid)
-      .set({
-        ...user,
-        asana: !user.asana,
-        pranayama: !user.pranayama,
-        dhyana: !user.dhyana,
-        warmup: !user.warmup,
-      })
-  }
 
   const modifyUserW = () => {
     firestore
@@ -100,49 +87,45 @@ function App(props) {
       <div>
         {user ? (
           <>
-            <img src={user.photoURL} alt="" />
-            <h1>
+            <img className="profile-image" src={user.photoURL} alt="" />
+
+            <span className="user-name">
+              Welcome,
               {user.displayName}
-              {user.email}
-              <br />
-              Warmup-
-              <button onClick={() => modifyUserW()}>warmup</button>
-              {user && user.warmup ? "yes" : "no"}
-              <br />
-              Asana-
-              {user && user.asana ? "yes" : "no"} <br />
-              <button onClick={() => modifyUserA()}>asana</button>
-              Pranayama-
-              {user && user.pranayama ? "yes" : "no"} <br />
-              <button onClick={() => modifyUserP()}>pranayama</button>
-              Dhyana-
-              {user && user.dhyana ? "yes" : "no"}
-              <button onClick={() => modifyUserD()}>dhyana</button>
-            </h1>
-            <button onClick={() => modifyUser()}>Modify</button>
-            <button
-              onClick={() => {
-                dispatch(REDUXTEST("This is my payload"))
-              }}
-            >
-              redux
-            </button>
+            </span>
+
+            <div>
+              <div>
+                Warmup-
+                {user && user.warmup ? "yes" : "no"}
+                <button onClick={() => modifyUserW()}>warmup</button>
+              </div>
+              <div>
+                Asana-
+                {user && user.asana ? "yes" : "no"}
+                <button onClick={() => modifyUserA()}>asana</button>
+              </div>
+              <div>
+                Pranayama-
+                {user && user.pranayama ? "yes" : "no"}
+                <button onClick={() => modifyUserP()}>pranayama</button>
+              </div>
+              <div>
+                Dhyana-
+                {user && user.dhyana ? "yes" : "no"}
+                <button onClick={() => modifyUserD()}>dhyana</button>
+              </div>
+            </div>
           </>
         ) : (
-          "Please sign in"
+          <>
+            <button onClick={signInWithGoogle}>Google</button>
+            <button onClick={signInWithFacebook}>Facebook</button>
+            Please sign in
+          </>
         )}
       </div>
 
-      {user ? (
-        <button onClick={() => auth.signOut()}>Signout</button>
-      ) : (
-        <>
-          <button onClick={signInWithGoogle}>Google</button>
-          <button onClick={signInWithFacebook}>Facebook</button>
-        </>
-      )}
-
-      <code>{user ? idToken : "Please sign in"}</code>
       {props.children}
     </div>
   )

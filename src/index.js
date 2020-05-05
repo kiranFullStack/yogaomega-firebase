@@ -3,12 +3,13 @@ import ReactDOM from "react-dom"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import * as serviceWorker from "./serviceWorker"
 import App from "./App"
-import Dashboard from "./pages/Dashboard"
+
 import Home from "./pages/Home"
-import Signup from "./pages/Signup"
+
 import { Provider } from "react-redux"
 import store from "./redux/store"
 import Header from "./components/Header"
+import "./index.scss"
 
 ReactDOM.render(
   <React.StrictMode>
@@ -19,12 +20,6 @@ ReactDOM.render(
           <Switch>
             <Route exact path="/">
               <Home />
-            </Route>
-            <Route path="/dashboard">
-              <Dashboard />
-            </Route>
-            <Route path="/signup">
-              <Signup />
             </Route>
           </Switch>
         </App>
