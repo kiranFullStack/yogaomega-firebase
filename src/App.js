@@ -87,10 +87,6 @@ function App(props) {
     )
   }, [user])
 
-  const style = {
-    display: "flex",
-  }
-
   return (
     <div className="App">
       <div>
@@ -104,7 +100,7 @@ function App(props) {
             </span>
 
             <div>
-              <div style={style}>
+              <div className={user && user.warmup ? "card-done" : "card"}>
                 <h1>
                   Warmup-
                   {user && user.warmup ? "yes" : "no"}
@@ -112,21 +108,21 @@ function App(props) {
 
                 <button onClick={() => modifyUserW()}>warmup</button>
               </div>
-              <div style={style}>
+              <div className={user && user.asana ? "card-done" : "card"}>
                 <h1>
                   Asana-
                   {user && user.asana ? "yes" : "no"}
                 </h1>
                 <button onClick={() => modifyUserA()}>asana</button>
               </div>
-              <div style={style}>
+              <div className={user && user.pranayama ? "card-done" : "card"}>
                 <h1>
                   Pranayama-
                   {user && user.pranayama ? "yes" : "no"}
                 </h1>
                 <button onClick={() => modifyUserP()}>pranayama</button>
               </div>
-              <div style={style}>
+              <div className={user && user.dhyana ? "card-done" : "card"}>
                 <h1>
                   Dhyana-
                   {user && user.dhyana ? "yes" : "no"}

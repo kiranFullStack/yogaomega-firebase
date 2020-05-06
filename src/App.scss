@@ -50,3 +50,21 @@
   font-size: 24px;
   font-weight: 70px;
 }
+
+.card {
+  display: flex;
+  margin: 34px;
+  background-color: red;
+  height: 280px;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.card-done {
+  display: flex;
+  margin: 34px;
+  background-color: green;
+  height: 280px;
+  justify-content: space-around;
+  align-items: center;
+}
