@@ -53,20 +53,26 @@
 
 .card {
   display: flex;
-  margin: 34px;
-  background-color: red;
+  margin: 84px 34px;
+
   height: 280px;
   justify-content: space-around;
   align-items: center;
+  border-radius: 50px;
+  background: red;
+  box-shadow: 20px 20px 60px red, -20px -20px 60px #ffffff;
 }
 
 .card-done {
   display: flex;
-  margin: 34px;
-  background-color: green;
+  margin: 84px 34px;
+
   height: 280px;
   justify-content: space-around;
   align-items: center;
+  border-radius: 50px;
+  background: green;
+  box-shadow: 20px 20px 60px green, -20px -20px 60px #ffffff;
 }
 .user-name-img-container {
   display: flex;

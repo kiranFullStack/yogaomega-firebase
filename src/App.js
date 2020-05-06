@@ -126,6 +126,7 @@ function App(props) {
           </>
         ) : (
           <>
+            <h1>This is the logedout page</h1>
             <button onClick={signInWithGoogle}>Google</button>
             <button onClick={signInWithFacebook}>Facebook</button>
             Please sign in
