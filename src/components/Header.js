@@ -9,7 +9,6 @@ export default function Header() {
 
   return (
     <div className="navbar">
-      {/* <div> */}
       <Link to="/">Home</Link>
 
       {isAuthenticated ? (

@@ -13,7 +13,7 @@ import { USERAUTH } from "./redux/auth"
 function App(props) {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated)
   const dispatch = useDispatch()
-  const [idToken, setIdToken] = useState(null)
+  const [token, setToken] = useState(null)
   const [user, setUser] = useState(null)
 
   const modifyUserW = () => {
@@ -70,22 +70,27 @@ function App(props) {
             ...snapshot.data(),
           })
         })
-        setIdToken(await auth.currentUser.getIdToken())
+        setToken(await auth.currentUser.getIdToken())
       } else {
-        setIdToken(null)
+        setToken(null)
         setUser(null)
       }
     })
   }, [])
 
   useEffect(() => {
-    dispatch(USERAUTH(user))
+    dispatch(
+      USERAUTH({
+        user,
+        token,
+      })
+    )
   }, [user])
 
   return (
     <div className="App">
       <div>
-        {user ? (
+        {isAuthenticated ? (
           <>
             <img className="profile-image" src={user.photoURL} alt="" />
 
