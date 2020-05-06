@@ -92,13 +92,6 @@ function App(props) {
       <div>
         {user ? (
           <>
-            <img className="profile-image" src={user.photoURL} alt="" />
-
-            <span className="user-name">
-              Welcome,
-              {user.displayName}
-            </span>
-
             <div>
               <div className={user && user.warmup ? "card-done" : "card"}>
                 <h1>

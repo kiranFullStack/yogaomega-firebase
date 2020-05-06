@@ -38,13 +38,17 @@
 }
 
 .navbar {
-  background-color: red;
+  background-color: grey;
   display: flex;
+  height: 74px;
   justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
 }
 
 .profile-image {
   height: 60px;
+  border-radius: 50%;
 }
 .user-name {
   font-size: 24px;
