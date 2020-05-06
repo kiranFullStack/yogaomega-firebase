@@ -98,8 +98,12 @@ function App(props) {
                   Warmup-
                   {user && user.warmup ? "yes" : "no"}
                 </h1>
-
-                <button onClick={() => modifyUserW()}>warmup</button>
+                <span
+                  className="wistia_embed wistia_async_16kdf61uw9 popover=true popoverContent=link "
+                  onClick={() => modifyUserW()}
+                >
+                  <button onClick={() => modifyUserW()}>warmup</button>
+                </span>
               </div>
               <div className={user && user.asana ? "card-done" : "card"}>
                 <h1>
