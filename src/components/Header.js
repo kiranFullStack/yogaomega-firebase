@@ -10,17 +10,15 @@ export default function Header() {
 
   return (
     <div className="navbar">
-      <Link to="/">Home</Link>
+      <Link to="/">Logo</Link>
 
       {isAuthenticated ? (
-        <>
-          <button onClick={() => auth.signOut()}>Log Out</button>{" "}
-          <img className="profile-image" src={user.photoURL} alt="" />
-          <span className="user-name">
-            Welcome,
-            {user.displayName}
-          </span>
-        </>
+        <div className="user-name-img-container">
+          Welcome,
+          {user.displayName}
+          <img className="profile-image" src={user.photoURL} alt="" />{" "}
+          <button onClick={() => auth.signOut()}>Log Out</button>
+        </div>
       ) : null}
     </div>
   )

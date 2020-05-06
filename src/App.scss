@@ -50,10 +50,6 @@
   height: 60px;
   border-radius: 50%;
 }
-.user-name {
-  font-size: 24px;
-  font-weight: 70px;
-}
 
 .card {
   display: flex;
@@ -70,5 +66,12 @@
   background-color: green;
   height: 280px;
   justify-content: space-around;
+  align-items: center;
+}
+.user-name-img-container {
+  display: flex;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 70px;
   align-items: center;
 }
