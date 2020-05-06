@@ -87,10 +87,14 @@ function App(props) {
     )
   }, [user])
 
+  const style = {
+    display: "flex",
+  }
+
   return (
     <div className="App">
       <div>
-        {isAuthenticated ? (
+        {user ? (
           <>
             <img className="profile-image" src={user.photoURL} alt="" />
 
@@ -100,24 +104,33 @@ function App(props) {
             </span>
 
             <div>
-              <div>
-                Warmup-
-                {user && user.warmup ? "yes" : "no"}
+              <div style={style}>
+                <h1>
+                  Warmup-
+                  {user && user.warmup ? "yes" : "no"}
+                </h1>
+
                 <button onClick={() => modifyUserW()}>warmup</button>
               </div>
-              <div>
-                Asana-
-                {user && user.asana ? "yes" : "no"}
+              <div style={style}>
+                <h1>
+                  Asana-
+                  {user && user.asana ? "yes" : "no"}
+                </h1>
                 <button onClick={() => modifyUserA()}>asana</button>
               </div>
-              <div>
-                Pranayama-
-                {user && user.pranayama ? "yes" : "no"}
+              <div style={style}>
+                <h1>
+                  Pranayama-
+                  {user && user.pranayama ? "yes" : "no"}
+                </h1>
                 <button onClick={() => modifyUserP()}>pranayama</button>
               </div>
-              <div>
-                Dhyana-
-                {user && user.dhyana ? "yes" : "no"}
+              <div style={style}>
+                <h1>
+                  Dhyana-
+                  {user && user.dhyana ? "yes" : "no"}
+                </h1>
                 <button onClick={() => modifyUserD()}>dhyana</button>
               </div>
             </div>
@@ -131,7 +144,7 @@ function App(props) {
         )}
       </div>
 
-      {props.children}
+      {/* {props.children} */}
     </div>
   )
 }
