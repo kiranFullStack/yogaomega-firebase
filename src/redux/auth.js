@@ -1,3 +1,5 @@
+import { auth as authFirebase } from "../firebase"
+
 //
 // ─── INITIAL STATE ──────────────────────────────────────────────────────────────
 //
@@ -23,6 +25,14 @@ const auth = (state = INITIAL_STATE, action) => {
         isAuthenticated: action.payload.user ? true : false,
       }
 
+    case "SIGN_OUT":
+      return {
+        ...state,
+        user: null,
+        token: null,
+        isAuthenticated: !state.isAuthenticated,
+      }
+
     default:
       return state
   }
@@ -33,6 +43,13 @@ export const USERAUTH = (user) => {
   return {
     type: "USERAUTH",
     payload: user,
+  }
+}
+
+export const SIGN_OUT = () => {
+  authFirebase.signOut()
+  return {
+    type: "SIGN_OUT",
   }
 }
 
