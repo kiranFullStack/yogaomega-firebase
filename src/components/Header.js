@@ -23,8 +23,7 @@ export default function Header() {
           Welcome,
           {user.displayName}
           <img className="profile-image" src={user.photoURL} alt="" />
-          <button onClick={() => auth.signOut()}>Log Out</button>
-          <button onClick={() => dispatch(SIGN_OUT())}>log---</button>
+          <button onClick={() => dispatch(SIGN_OUT())}>Log Out</button>
         </div>
       ) : null}
     </div>
