@@ -7,11 +7,15 @@ import {
 } from "../firebase"
 import { useDispatch } from "react-redux"
 import { USERAUTH } from "../redux/auth"
+import { useSelector } from "react-redux"
+import { Redirect } from "react-router-dom"
 
 export default function Signin() {
   const dispatch = useDispatch()
   const [token, setToken] = useState(null)
   const [user, setUser] = useState(null)
+
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated)
 
   useEffect(() => {
     auth.onAuthStateChanged(async () => {
@@ -40,15 +44,17 @@ export default function Signin() {
     )
   }, [user])
 
-  return (
-    <div>
-      <>
-        <h1>This is the logedout page</h1>
-        <button onClick={signInWithGoogle}>Google</button>
-        <button onClick={signInWithFacebook}>Facebook</button>
-        Please sign in
-      </>
-      <h1>Signin</h1>
-    </div>
-  )
+  if (isAuthenticated) return <Redirect to="/dashboard" />
+  else
+    return (
+      <div>
+        <>
+          <h1>This is the logedout page</h1>
+          <button onClick={signInWithGoogle}>Google</button>
+          <button onClick={signInWithFacebook}>Facebook</button>
+          Please sign in
+        </>
+        <h1>Signin</h1>
+      </div>
+    )
 }
