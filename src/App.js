@@ -138,7 +138,7 @@ function App(props) {
         )}
       </div>
 
-      {/* {props.children} */}
+      {props.children}
     </div>
   )
 }

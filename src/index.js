@@ -10,6 +10,8 @@ import { Provider } from "react-redux"
 import store from "./redux/store"
 import Header from "./components/Header"
 import "./index.scss"
+import Dashboard from "./pages/Dashboard"
+import Signin from "./pages/Signin"
 
 ReactDOM.render(
   <React.StrictMode>
@@ -18,7 +20,13 @@ ReactDOM.render(
         <Header />
         <App>
           <Switch>
-            <Route exact path="/">
+            <Route path="/dashboard">
+              <Dashboard />
+            </Route>
+            <Route path="/signin">
+              <Signin />
+            </Route>
+            <Route path="/">
               <Home />
             </Route>
           </Switch>
