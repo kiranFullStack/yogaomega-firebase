@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import { useSelector } from "react-redux"
-import { auth } from "../firebase"
+
 import "../App.scss"
 import { useDispatch } from "react-redux"
 import { SIGN_OUT } from "../redux/auth"
