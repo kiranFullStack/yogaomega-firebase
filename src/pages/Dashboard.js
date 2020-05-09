@@ -13,7 +13,6 @@ export default function Dashboard() {
       .doc(user.uid)
       .set({
         ...user,
-
         warmup: !user.warmup,
       })
   }

@@ -16,6 +16,8 @@ export default function Header() {
       <Link to="/">Logo</Link>
       <Link to="/dashboard">-Dashboard</Link>
       <Link to="/">-Home</Link>
+      <Link to="/shop">-Shop</Link>
+      <Link to="/blog">-Blog</Link>
       {!isAuthenticated ? <Link to="/signin">-Signin</Link> : null}
 
       {isAuthenticated ? (

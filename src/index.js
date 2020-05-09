@@ -12,6 +12,8 @@ import Header from "./components/Header"
 import "./index.scss"
 import Dashboard from "./pages/Dashboard"
 import Signin from "./pages/Signin"
+import Shop from "./pages/Shop"
+import Blog from "./pages/Blog"
 
 ReactDOM.render(
   <React.StrictMode>
@@ -25,6 +27,12 @@ ReactDOM.render(
             </Route>
             <Route path="/signin">
               <Signin />
+            </Route>
+            <Route path="/shop">
+              <Shop />
+            </Route>
+            <Route path="/blog">
+              <Blog />
             </Route>
             <Route path="/">
               <Home />
