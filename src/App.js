@@ -1,18 +1,8 @@
-// import React from "react"
-// import "./App.scss"
-
-// function App(props) {
-//   return <div className="App">{props.children}</div>
-// }
-
-// export default App
-
 import React, { useState, useEffect } from "react"
-
-import "./styles/App.scss"
-import { auth, handleUserProfile } from "./firebase"
 import { useDispatch } from "react-redux"
+
 import { USERAUTH } from "./redux/auth"
+import { auth, handleUserProfile } from "./firebase"
 
 function App(props) {
   const dispatch = useDispatch()

@@ -2,7 +2,6 @@ import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import { useSelector } from "react-redux"
 
-import "../styles/App.scss"
 import { useDispatch } from "react-redux"
 import { SIGN_OUT } from "../redux/auth"
 import Slider from "./Slider"
@@ -16,8 +15,8 @@ export default function Header() {
 
   return (
     <div className="navbar">
-      <Slider isOpen={menu} />
-      <button
+      {/* <Slider isOpen={menu} /> */}
+      {/* <button
         onClick={() => setmenu(!menu)}
         className={`hamburger hamburger--collapse ${menu ? "is-active" : null}`}
         type="button"
@@ -25,7 +24,8 @@ export default function Header() {
         <span className="hamburger-box">
           <span className="hamburger-inner"></span>
         </span>
-      </button>
+      </button> */}
+
       <Link to="/">Logo</Link>
       <Link to="/dashboard">-Dashboard</Link>
       <Link to="/shop">-Shop</Link>
