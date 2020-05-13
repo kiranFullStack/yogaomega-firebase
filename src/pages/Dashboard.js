@@ -2,7 +2,11 @@ import React from "react"
 import { useSelector } from "react-redux"
 import { Redirect } from "react-router-dom"
 import { firestore } from "../firebase"
-import { Switch, Route, Link, useRouteMatch, useParams } from "react-router-dom"
+import { Switch, Route, Link, useRouteMatch } from "react-router-dom"
+import Asana from "./Asana"
+import Pranayama from "./Pranayama"
+import Warmup from "./Warmup"
+import Dhyana from "./Dhyana"
 export default function Dashboard() {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated)
   const user = useSelector((state) => state.auth.user)
@@ -83,6 +87,7 @@ export default function Dashboard() {
                   <button onClick={() => modifyUserA()}>asana</button>
                 </div>
               </Link>
+
               <Link to={`${url}/pranayama`}>
                 <div className={user && user.pranayama ? "card-done" : "card"}>
                   <h1>
@@ -103,25 +108,19 @@ export default function Dashboard() {
               </Link>
             </div>
           </Route>
-          <Route path={`${path}/:topicId`}>
-            <Topic />
-          </Route>
+
+          <Route
+            render={({ match: { url } }) => (
+              <>
+                <Route path={`${url}/warmup`} component={Warmup} />
+                <Route path={`${url}/asana`} component={Asana} />
+                <Route path={`${url}/pranayama`} component={Pranayama} />
+                <Route path={`${url}/dhyana`} component={Dhyana} />
+              </>
+            )}
+          />
         </Switch>
       </>
-    </div>
-  )
-}
-
-function Topic() {
-  // The <Route> that rendered this component has a
-  // path of `/topics/:topicId`. The `:topicId` portion
-  // of the URL indicates a placeholder that we can
-  // get from `useParams()`.
-  let { topicId } = useParams()
-
-  return (
-    <div>
-      <h3>{topicId}</h3>
     </div>
   )
 }
