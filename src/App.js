@@ -8,7 +8,8 @@
 // export default App
 
 import React, { useState, useEffect } from "react"
-import "./App.scss"
+
+import "./styles/App.scss"
 import { auth, handleUserProfile } from "./firebase"
 import { useDispatch } from "react-redux"
 import { USERAUTH } from "./redux/auth"
