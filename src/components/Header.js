@@ -27,10 +27,10 @@ export default function Header() {
       </button> */}
 
       <Link to="/">Logo</Link>
-      <Link to="/dashboard">-Dashboard</Link>
-      <Link to="/shop">-Shop</Link>
-      <Link to="/blog">-Blog</Link>
-      {!isAuthenticated ? <Link to="/signin">-Signin</Link> : null}
+      <Link to="/dashboard">Dashboard</Link>
+      <Link to="/shop">Shop</Link>
+      <Link to="/blog">Blog</Link>
+      {!isAuthenticated ? <Link to="/signin">Signin</Link> : null}
 
       {isAuthenticated ? (
         <div className="user-name-img-container">
