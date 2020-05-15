@@ -1,0 +1,38 @@
+.card {
+  display: flex;
+  margin: 84px 34px;
+
+  height: 280px;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 50px;
+  background: red;
+  box-shadow: 20px 20px 60px red, -20px -20px 60px #ffffff;
+}
+
+.card-done {
+  display: flex;
+  margin: 84px 34px;
+
+  height: 280px;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 50px;
+  background: green;
+  box-shadow: 20px 20px 60px green, -20px -20px 60px #ffffff;
+}
+.user-name-img-container {
+  display: flex;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 70px;
+  align-items: center;
+}
+
+.App {
+  text-align: center;
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
